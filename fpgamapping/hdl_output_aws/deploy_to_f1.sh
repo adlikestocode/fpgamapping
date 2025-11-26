@@ -1,1 +1,0 @@
-#!/bin/bash\necho "AWS F1 Deployment"\n
