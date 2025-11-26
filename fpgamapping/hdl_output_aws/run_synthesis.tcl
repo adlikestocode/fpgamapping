@@ -1,1 +1,0 @@
-# Vivado synthesis\ncreate_project fpga ./build -part xcvu9p\n
