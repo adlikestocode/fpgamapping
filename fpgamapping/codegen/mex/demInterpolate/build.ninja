@@ -1,0 +1,52 @@
+# CompilerName=mingw64
+# Mode=optim
+ninja_required_version = 1.3
+
+# Basic folders
+root = .
+builddir = $root/build/win64
+matlabdir = C:/Program Files/MATLAB/R2023b
+startdir = C:/Users/adity_6z2h70p/Documents/MATLAB/fpgamapping
+
+# Toolchain information
+cc = C:\ProgramData\MATLAB\SupportPackages\R2023b\3P.instrset\mingw_w64.instrset\bin\gcc
+cxx = C:\ProgramData\MATLAB\SupportPackages\R2023b\3P.instrset\mingw_w64.instrset\bin\g++
+linker = C:\ProgramData\MATLAB\SupportPackages\R2023b\3P.instrset\mingw_w64.instrset\bin\gcc
+linkerxx = C:\ProgramData\MATLAB\SupportPackages\R2023b\3P.instrset\mingw_w64.instrset\bin\g++
+
+cflags =  -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I "C:\Users\adity_6z2h70p\Documents\MATLAB\fpgamapping\codegen\mex\demInterpolate" -I "C:\Users\adity_6z2h70p\Documents\MATLAB\fpgamapping" -I "C:\Users\adity_6z2h70p\Documents\MATLAB\fpgamapping\codegen\mex\demInterpolate\interface" -I "C:\Program Files\MATLAB\R2023b\extern\include" -I "." -DMODEL=demInterpolate_mex -D__USE_MINGW_ANSI_STDIO=1 -msse2 
+
+cxxflags =  -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c++11 -I "C:\Users\adity_6z2h70p\Documents\MATLAB\fpgamapping\codegen\mex\demInterpolate" -I "C:\Users\adity_6z2h70p\Documents\MATLAB\fpgamapping" -I "C:\Users\adity_6z2h70p\Documents\MATLAB\fpgamapping\codegen\mex\demInterpolate\interface" -I "C:\Program Files\MATLAB\R2023b\extern\include" -I "." -DMODEL=demInterpolate_mex -D__USE_MINGW_ANSI_STDIO=1 -msse2 
+
+ldflags =  -m64 -Wl,--no-undefined -shared -static -L"C:\Program Files\MATLAB\R2023b\extern\lib\win64\mingw64" -llibmx -llibmex -llibmat -lm -llibmwlapack -llibmwblas -o "demInterpolate_mex.mexw64" -llibemlrt -llibcovrt -llibut -llibmwmathutil  demInterpolate_mex.def
+
+linkobjs = 
+
+# Build Rules
+rule cc
+    command = $cc $cflags $in -o $out
+
+rule cxx
+    command = $cxx $cxxflags $in -o $out
+
+rule link
+    command = $linker @$out.rsp $linkobjs $ldflags
+    rspfile = $out.rsp
+    rspfile_content = $in
+
+rule linkxx
+    command = $linkerxx $in $linkobjs $ldflags
+
+# Build
+build $builddir/demInterpolate_data.o : cc $root/demInterpolate_data.c
+build $builddir/rt_nonfinite.o : cc $root/rt_nonfinite.c
+build $builddir/demInterpolate_initialize.o : cc $root/demInterpolate_initialize.c
+build $builddir/demInterpolate_terminate.o : cc $root/demInterpolate_terminate.c
+build $builddir/demInterpolate.o : cc $root/demInterpolate.c
+build $builddir/_coder_demInterpolate_api.o : cc $root/interface/_coder_demInterpolate_api.c
+build $builddir/_coder_demInterpolate_mex.o : cc $root/interface/_coder_demInterpolate_mex.c
+build $builddir/_coder_demInterpolate_info.o : cc $root/interface/_coder_demInterpolate_info.c
+build $builddir/c_mexapi_version.o : cc $matlabdir/extern/version/c_mexapi_version.c
+
+# Link
+build $root\demInterpolate_mex.mexw64 : link $builddir/demInterpolate_data.o $builddir/rt_nonfinite.o $builddir/demInterpolate_initialize.o $builddir/demInterpolate_terminate.o $builddir/demInterpolate.o $builddir/_coder_demInterpolate_api.o $builddir/_coder_demInterpolate_mex.o $builddir/_coder_demInterpolate_info.o $builddir/c_mexapi_version.o 

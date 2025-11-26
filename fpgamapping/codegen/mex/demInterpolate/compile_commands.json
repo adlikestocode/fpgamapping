@@ -1,0 +1,56 @@
+[
+  {
+    "directory": "C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\\codegen\\mex\\demInterpolate",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2023b\\3P.instrset\\mingw_w64.instrset\\bin\\gcc -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I \"C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\\codegen\\mex\\demInterpolate\" -I \"C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\" -I \"C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\\codegen\\mex\\demInterpolate\\interface\" -I \"C:\\Program Files\\MATLAB\\R2023b\\extern\\include\" -I \".\" -DMODEL=demInterpolate_mex -D__USE_MINGW_ANSI_STDIO=1 -msse2  demInterpolate_data.c -o build/win64/demInterpolate_data.o",
+    "file": "demInterpolate_data.c",
+    "output": "build/win64/demInterpolate_data.o"
+  },
+  {
+    "directory": "C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\\codegen\\mex\\demInterpolate",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2023b\\3P.instrset\\mingw_w64.instrset\\bin\\gcc -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I \"C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\\codegen\\mex\\demInterpolate\" -I \"C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\" -I \"C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\\codegen\\mex\\demInterpolate\\interface\" -I \"C:\\Program Files\\MATLAB\\R2023b\\extern\\include\" -I \".\" -DMODEL=demInterpolate_mex -D__USE_MINGW_ANSI_STDIO=1 -msse2  rt_nonfinite.c -o build/win64/rt_nonfinite.o",
+    "file": "rt_nonfinite.c",
+    "output": "build/win64/rt_nonfinite.o"
+  },
+  {
+    "directory": "C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\\codegen\\mex\\demInterpolate",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2023b\\3P.instrset\\mingw_w64.instrset\\bin\\gcc -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I \"C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\\codegen\\mex\\demInterpolate\" -I \"C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\" -I \"C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\\codegen\\mex\\demInterpolate\\interface\" -I \"C:\\Program Files\\MATLAB\\R2023b\\extern\\include\" -I \".\" -DMODEL=demInterpolate_mex -D__USE_MINGW_ANSI_STDIO=1 -msse2  demInterpolate_initialize.c -o build/win64/demInterpolate_initialize.o",
+    "file": "demInterpolate_initialize.c",
+    "output": "build/win64/demInterpolate_initialize.o"
+  },
+  {
+    "directory": "C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\\codegen\\mex\\demInterpolate",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2023b\\3P.instrset\\mingw_w64.instrset\\bin\\gcc -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I \"C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\\codegen\\mex\\demInterpolate\" -I \"C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\" -I \"C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\\codegen\\mex\\demInterpolate\\interface\" -I \"C:\\Program Files\\MATLAB\\R2023b\\extern\\include\" -I \".\" -DMODEL=demInterpolate_mex -D__USE_MINGW_ANSI_STDIO=1 -msse2  demInterpolate_terminate.c -o build/win64/demInterpolate_terminate.o",
+    "file": "demInterpolate_terminate.c",
+    "output": "build/win64/demInterpolate_terminate.o"
+  },
+  {
+    "directory": "C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\\codegen\\mex\\demInterpolate",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2023b\\3P.instrset\\mingw_w64.instrset\\bin\\gcc -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I \"C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\\codegen\\mex\\demInterpolate\" -I \"C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\" -I \"C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\\codegen\\mex\\demInterpolate\\interface\" -I \"C:\\Program Files\\MATLAB\\R2023b\\extern\\include\" -I \".\" -DMODEL=demInterpolate_mex -D__USE_MINGW_ANSI_STDIO=1 -msse2  demInterpolate.c -o build/win64/demInterpolate.o",
+    "file": "demInterpolate.c",
+    "output": "build/win64/demInterpolate.o"
+  },
+  {
+    "directory": "C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\\codegen\\mex\\demInterpolate",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2023b\\3P.instrset\\mingw_w64.instrset\\bin\\gcc -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I \"C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\\codegen\\mex\\demInterpolate\" -I \"C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\" -I \"C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\\codegen\\mex\\demInterpolate\\interface\" -I \"C:\\Program Files\\MATLAB\\R2023b\\extern\\include\" -I \".\" -DMODEL=demInterpolate_mex -D__USE_MINGW_ANSI_STDIO=1 -msse2  interface/_coder_demInterpolate_api.c -o build/win64/_coder_demInterpolate_api.o",
+    "file": "interface/_coder_demInterpolate_api.c",
+    "output": "build/win64/_coder_demInterpolate_api.o"
+  },
+  {
+    "directory": "C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\\codegen\\mex\\demInterpolate",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2023b\\3P.instrset\\mingw_w64.instrset\\bin\\gcc -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I \"C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\\codegen\\mex\\demInterpolate\" -I \"C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\" -I \"C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\\codegen\\mex\\demInterpolate\\interface\" -I \"C:\\Program Files\\MATLAB\\R2023b\\extern\\include\" -I \".\" -DMODEL=demInterpolate_mex -D__USE_MINGW_ANSI_STDIO=1 -msse2  interface/_coder_demInterpolate_mex.c -o build/win64/_coder_demInterpolate_mex.o",
+    "file": "interface/_coder_demInterpolate_mex.c",
+    "output": "build/win64/_coder_demInterpolate_mex.o"
+  },
+  {
+    "directory": "C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\\codegen\\mex\\demInterpolate",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2023b\\3P.instrset\\mingw_w64.instrset\\bin\\gcc -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I \"C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\\codegen\\mex\\demInterpolate\" -I \"C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\" -I \"C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\\codegen\\mex\\demInterpolate\\interface\" -I \"C:\\Program Files\\MATLAB\\R2023b\\extern\\include\" -I \".\" -DMODEL=demInterpolate_mex -D__USE_MINGW_ANSI_STDIO=1 -msse2  interface/_coder_demInterpolate_info.c -o build/win64/_coder_demInterpolate_info.o",
+    "file": "interface/_coder_demInterpolate_info.c",
+    "output": "build/win64/_coder_demInterpolate_info.o"
+  },
+  {
+    "directory": "C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\\codegen\\mex\\demInterpolate",
+    "command": "C:\\ProgramData\\MATLAB\\SupportPackages\\R2023b\\3P.instrset\\mingw_w64.instrset\\bin\\gcc -c -fexceptions -fno-omit-frame-pointer -m64 -DMATLAB_MEX_FILE  -DMATLAB_MEX_FILE -O2 -fwrapv -DNDEBUG -std=c99 -I \"C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\\codegen\\mex\\demInterpolate\" -I \"C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\" -I \"C:\\Users\\adity_6z2h70p\\Documents\\MATLAB\\fpgamapping\\codegen\\mex\\demInterpolate\\interface\" -I \"C:\\Program Files\\MATLAB\\R2023b\\extern\\include\" -I \".\" -DMODEL=demInterpolate_mex -D__USE_MINGW_ANSI_STDIO=1 -msse2  \"C:/Program Files/MATLAB/R2023b/extern/version/c_mexapi_version.c\" -o build/win64/c_mexapi_version.o",
+    "file": "C:/Program Files/MATLAB/R2023b/extern/version/c_mexapi_version.c",
+    "output": "build/win64/c_mexapi_version.o"
+  }
+]

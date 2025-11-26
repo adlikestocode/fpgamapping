@@ -1,0 +1,288 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Fixed-Point Report for demInterpolate</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style>
+	body { font-family: monospace; }
+	h2 { font-family: Arial, Helvetica, sans-serif; color: #990000; margin-top: 50px; }
+	table,th,td { border: 1px solid black; }
+	table { margin-top: 30px; }
+	th { align: center; font-weight: bold; }
+	tr.h { background-color: #99CCFF; }
+	tr.a { background-color: #EEEEFF; }
+	tr.b { background-color: #FFFFFF; }
+	tr.c { background-color: #FFA500; }
+	tr.a td, tr.b td { border-style: none; }
+	td.left { text-align: left; }
+	td.right { text-align: right; }
+	td.center { text-align: center; }
+	td.bold { font-weight: bold; }
+	pre { padding: 0px; margin: 0px; }
+	span { font-style: italic; }
+	.code, .code tr, .code th, .code td { border: none; border-collapse: collapse; }
+	.padd { padding-left: 5px; }
+	td.cov, th.cov { width: 50px; height: 20px; text-align: center; font-weight: bold; border-right: 2px solid black; cell-spacing: 0px; }
+	td.cov { vertical-align: top; }
+	td.black { color: #000000; font-weight: bold; padding-top: 4px; }
+	td.white { color: #FFFFFF; font-weight: bold; padding-top: 4px; }
+	.code th { font-weight: bold; border-bottom: 2px solid black; }
+</style>
+</head>
+<body>
+<h3>Generated on  2025-11-26 18:29:12</h3>
+<p>The following table shows fixed point instrumentation results</p>
+<h2>Fixed-Point Report <span>demInterpolate<span></h2>
+<TABLE class="code">
+<TR>
+<TH class="cov padd">Simulation Coverage</TH>
+<TH>Code</TH>
+</TR>
+<TR>
+<TD class="cov white" style="background-color: rgb(5,112,9);">100%</TD>
+<TD class="padd"><pre>function z = demInterpolate(demData, x, y)
+</pre></TD>
+</TR>
+<TR>
+<TD class="cov white" style="background-color: rgb(157,38,35);">0%</TD>
+<TD class="padd"><pre>    </pre></TD>
+</TR>
+<TR>
+<TD class="cov white" style="background-color: rgb(5,112,9);">100%</TD>
+<TD class="padd"><pre>%DEMINTERPOLATE Bilinear interpolation for DEM elevation queries
+</pre></TD>
+</TR>
+<TR>
+<TD class="cov white" style="background-color: rgb(157,38,35);">0%</TD>
+<TD class="padd"><pre>    </pre></TD>
+</TR>
+<TR>
+<TD class="cov white" style="background-color: rgb(5,112,9);">100%</TD>
+<TD class="padd"><pre>%
+</pre></TD>
+</TR>
+<TR>
+<TD class="cov white" style="background-color: rgb(157,38,35);">0%</TD>
+<TD class="padd"><pre>    </pre></TD>
+</TR>
+<TR>
+<TD class="cov white" style="background-color: rgb(5,112,9);">100%</TD>
+<TD class="padd"><pre>% Universal implementation that works in:
+</pre></TD>
+</TR>
+<TR>
+<TD class="cov white" style="background-color: rgb(157,38,35);">0%</TD>
+<TD class="padd"><pre>    </pre></TD>
+</TR>
+<TR>
+<TD class="cov white" style="background-color: rgb(5,112,9);">100%</TD>
+<TD class="padd"><pre>%   - Module 0: DEM system
+</pre></TD>
+</TR>
+<TR>
+<TD class="cov white" style="background-color: rgb(157,38,35);">0%</TD>
+<TD class="padd"><pre>    </pre></TD>
+</TR>
+<TR>
+<TD class="cov white" style="background-color: rgb(5,112,9);">100%</TD>
+<TD class="padd"><pre>%   - Module 1: Mapping
+</pre></TD>
+</TR>
+<TR>
+<TD class="cov white" style="background-color: rgb(157,38,35);">0%</TD>
+<TD class="padd"><pre>    </pre></TD>
+</TR>
+<TR>
+<TD class="cov white" style="background-color: rgb(5,112,9);">100%</TD>
+<TD class="padd"><pre>%   - Module 2: Coverage paths
+</pre></TD>
+</TR>
+<TR>
+<TD class="cov white" style="background-color: rgb(157,38,35);">0%</TD>
+<TD class="padd"><pre>    </pre></TD>
+</TR>
+<TR>
+<TD class="cov white" style="background-color: rgb(5,112,9);">100%</TD>
+<TD class="padd"><pre>%   - Module 3: A* pathfinding
+</pre></TD>
+</TR>
+<TR>
+<TD class="cov white" style="background-color: rgb(157,38,35);">0%</TD>
+<TD class="padd"><pre>    </pre></TD>
+</TR>
+<TR>
+<TD class="cov white" style="background-color: rgb(5,112,9);">100%</TD>
+<TD class="padd"><pre>%   - Module 4: Mission integration
+    %   - Module 5: HDL generation for AWS F1
+    %
+    % Syntax:
+    %   z = demInterpolate(demData, x, y)
+    %
+    % Inputs:
+    %   demData - DEM structure with fields:
+    %             .X (101x101 grid of X coordinates)
+    %             .Y (101x101 grid of Y coordinates)
+    %             .Z (101x101 grid of elevations)
+    %             .resolution (grid spacing, e.g., 10 meters)
+    %   x - UTM X coordinate (scalar)
+    %   y - UTM Y coordinate (scalar)
+    %
+    % Outputs:
+    %   z - Interpolated elevation at (x,y) in meters
+    %
+    % Features:
+    %   - HDL Coder compatible (no try-catch, bounded loops)
+    %   - Fixed-Point Designer compatible (simple arithmetic)
+    %   - Works with existing Modules 0-4 code
+    %   - AWS F1 FPGA ready
+    %
+    % Example:
+    %   demData = load('synthetic_dem_hills.mat').demData;
+    %   z = demInterpolate(demData, 500500, 5400500);
+    
+    %% Input validation (removed for HDL compatibility)
+    % Note: For HDL, input validation happens at top level
+    % This function assumes valid inputs
+    
+    %% Extract grid data
+    X_grid = demData.X;
+    Y_grid = demData.Y;
+    Z_grid = demData.Z;
+    resolution = demData.resolution;
+    
+    %% Grid bounds
+    x_min = X_grid(1, 1);
+    y_min = Y_grid(1, 1);
+    
+    %% Calculate grid position
+    % Position in grid coordinates (floating-point)
+    i_float = (x - x_min) / resolution;
+    j_float = (y - y_min) / resolution;
+    
+    %% Integer grid indices
+    i = floor(i_float);
+    j = floor(j_float);
+    
+    %% Bounds checking (clamp to valid range for 101x101 grid)
+    % This prevents out-of-bounds access and is HDL-compatible
+    if i &lt; 0
+        i = 0;
+    end
+    if j &lt; 0
+        j = 0;
+    end
+    if i &gt;= 100
+        i = 99;
+    end
+    if j &gt;= 100
+        j = 99;
+    end
+    
+    %% Calculate fractional offsets (interpolation weights)
+    dx = i_float - i;  % X weight (0 to 1)
+    dy = j_float - j;  % Y weight (0 to 1)
+    
+    %% Clamp weights to valid range [0, 1]
+    % Handles edge cases and ensures valid interpolation
+    if dx &lt; 0
+        dx = 0;
+    end
+    if dx &gt; 1
+        dx = 1;
+    end
+    if dy &lt; 0
+        dy = 0;
+    end
+    if dy &gt; 1
+        dy = 1;
+    end
+    
+    %% Get four corner elevation values
+    % MATLAB uses 1-based indexing, so add 1 to C-style indices
+    z11 = Z_grid(j+1, i+1);    % Bottom-left corner
+    z21 = Z_grid(j+1, i+2);    % Bottom-right corner
+    z12 = Z_grid(j+2, i+1);    % Top-left corner
+    z22 = Z_grid(j+2, i+2);    % Top-right corner
+    
+    %% Bilinear interpolation
+    % Standard formula: z = z11*(1-dx)*(1-dy) + z21*dx*(1-dy) + 
+    %                       z12*(1-dx)*dy + z22*dx*dy
+    % This is HDL-synthesizable and Fixed-Point compatible
+    z = z11 * (1 - dx) * (1 - dy) + ...
+        z21 * dx * (1 - dy) + ...
+        z12 * (1 - dx) * dy + ...
+        z22 * dx * dy;
+    
+end</pre></TD>
+</TR>
+</TABLE>
+<TABLE><TR class="h"><th>Variable Name</th><th>Type</th><th>Sim Min</th><th>Sim Max</th><th>Static Min</th><th>Static Max</th><th>Whole Number</th><th>ProposedType <BR /> (Best For WL = 16)</th></TR><TR class="a">
+<TD class="left">X_grid</TD><TD class="left">double 101 x 101 </TD><TD class="right">500000</TD><TD class="right">501000</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">Yes</TD><TD class="left">numerictype(0, 19, 0)</TD></TR>
+<TR class="b">
+<TD class="left">Y_grid</TD><TD class="left">double 101 x 101 </TD><TD class="right">5400000</TD><TD class="right">5401000</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">Yes</TD><TD class="left">numerictype(0, 23, 0)</TD></TR>
+<TR class="a">
+<TD class="left">Z_grid</TD><TD class="left">double 101 x 101 </TD><TD class="right">79.36378612056528</TD><TD class="right">120.63621387943469</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">No</TD><TD class="left">numerictype(0, 16, 9)</TD></TR>
+<TR class="b">
+<TD class="left">demData</TD><TD class="left">struct</TD><TD class="right"></TD><TD class="right"></TD><TD class="right"></TD><TD class="right"></TD><TD class="left"></TD><TD class="left"></TD></TR>
+<TR class="b">
+<TD class="left">demData.X</TD><TD class="left">double 101 x 101 </TD><TD class="right">500000</TD><TD class="right">501000</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">Yes</TD><TD class="left">numerictype(0, 19, 0)</TD></TR>
+<TR class="b">
+<TD class="left">demData.Y</TD><TD class="left">double 101 x 101 </TD><TD class="right">5400000</TD><TD class="right">5401000</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">Yes</TD><TD class="left">numerictype(0, 23, 0)</TD></TR>
+<TR class="b">
+<TD class="left">demData.Z</TD><TD class="left">double 101 x 101 </TD><TD class="right">79.36378612056528</TD><TD class="right">120.63621387943469</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">No</TD><TD class="left">numerictype(0, 16, 9)</TD></TR>
+<TR class="b">
+<TD class="left">demData.resolution</TD><TD class="left">double</TD><TD class="right">10</TD><TD class="right">10</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">Yes</TD><TD class="left">numerictype(0, 4, 0)</TD></TR>
+<TR class="b">
+<TD class="left">demData.xMin</TD><TD class="left">double</TD><TD class="right">500000</TD><TD class="right">500000</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">Yes</TD><TD class="left">numerictype(0, 19, 0)</TD></TR>
+<TR class="b">
+<TD class="left">demData.xMax</TD><TD class="left">double</TD><TD class="right">501000</TD><TD class="right">501000</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">Yes</TD><TD class="left">numerictype(0, 19, 0)</TD></TR>
+<TR class="b">
+<TD class="left">demData.yMin</TD><TD class="left">double</TD><TD class="right">5400000</TD><TD class="right">5400000</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">Yes</TD><TD class="left">numerictype(0, 23, 0)</TD></TR>
+<TR class="b">
+<TD class="left">demData.yMax</TD><TD class="left">double</TD><TD class="right">5401000</TD><TD class="right">5401000</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">Yes</TD><TD class="left">numerictype(0, 23, 0)</TD></TR>
+<TR class="b">
+<TD class="left">demData.type</TD><TD class="left">char 1 x 5 </TD><TD class="right">Unknown</TD><TD class="right">Unknown</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">Yes</TD><TD class="left"></TD></TR>
+<TR class="b">
+<TD class="left">demData.minElevation</TD><TD class="left">double</TD><TD class="right">79.36378612056528</TD><TD class="right">79.36378612056528</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">No</TD><TD class="left">numerictype(0, 16, 9)</TD></TR>
+<TR class="b">
+<TD class="left">demData.maxElevation</TD><TD class="left">double</TD><TD class="right">120.63621387943469</TD><TD class="right">120.63621387943469</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">No</TD><TD class="left">numerictype(0, 16, 9)</TD></TR>
+<TR class="b">
+<TD class="left">demData.meanElevation</TD><TD class="left">double</TD><TD class="right">100.00000000000011</TD><TD class="right">100.00000000000011</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">No</TD><TD class="left">numerictype(0, 16, 9)</TD></TR>
+<TR class="b">
+<TD class="left">demData.stdElevation</TD><TD class="left">double</TD><TD class="right">9.951549497529307</TD><TD class="right">9.951549497529307</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">No</TD><TD class="left">numerictype(0, 16, 12)</TD></TR>
+<TR class="a">
+<TD class="left">dx</TD><TD class="left">double</TD><TD class="right">0</TD><TD class="right">1</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">No</TD><TD class="left">numerictype(0, 16, 15)</TD></TR>
+<TR class="b">
+<TD class="left">dy</TD><TD class="left">double</TD><TD class="right">0</TD><TD class="right">1</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">No</TD><TD class="left">numerictype(0, 16, 15)</TD></TR>
+<TR class="a">
+<TD class="left">i</TD><TD class="left">double</TD><TD class="right">0</TD><TD class="right">100</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">Yes</TD><TD class="left">numerictype(0, 7, 0)</TD></TR>
+<TR class="b">
+<TD class="left">i_float</TD><TD class="left">double</TD><TD class="right">0</TD><TD class="right">100</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">No</TD><TD class="left">numerictype(0, 16, 9)</TD></TR>
+<TR class="a">
+<TD class="left">j</TD><TD class="left">double</TD><TD class="right">0</TD><TD class="right">100</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">Yes</TD><TD class="left">numerictype(0, 7, 0)</TD></TR>
+<TR class="b">
+<TD class="left">j_float</TD><TD class="left">double</TD><TD class="right">0</TD><TD class="right">100</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">No</TD><TD class="left">numerictype(0, 16, 9)</TD></TR>
+<TR class="a">
+<TD class="left">resolution</TD><TD class="left">double</TD><TD class="right">10</TD><TD class="right">10</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">Yes</TD><TD class="left">numerictype(0, 4, 0)</TD></TR>
+<TR class="c">
+<TD class="left">x</TD><TD class="left">double</TD><TD class="right">500000</TD><TD class="right">501000</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">No</TD><TD class="left">numerictype(0, 16, -3)</TD></TR>
+<TR class="a">
+<TD class="left">x_min</TD><TD class="left">double</TD><TD class="right">500000</TD><TD class="right">500000</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">Yes</TD><TD class="left">numerictype(0, 19, 0)</TD></TR>
+<TR class="c">
+<TD class="left">y</TD><TD class="left">double</TD><TD class="right">5400000</TD><TD class="right">5401000</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">No</TD><TD class="left">numerictype(0, 16, -7)</TD></TR>
+<TR class="a">
+<TD class="left">y_min</TD><TD class="left">double</TD><TD class="right">5400000</TD><TD class="right">5400000</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">Yes</TD><TD class="left">numerictype(0, 23, 0)</TD></TR>
+<TR class="b">
+<TD class="left">z</TD><TD class="left">double</TD><TD class="right">79.51729204770447</TD><TD class="right">120.49345587969964</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">No</TD><TD class="left">numerictype(0, 16, 9)</TD></TR>
+<TR class="a">
+<TD class="left">z11</TD><TD class="left">double</TD><TD class="right">79.48984254466797</TD><TD class="right">120.56960289335548</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">No</TD><TD class="left">numerictype(0, 16, 9)</TD></TR>
+<TR class="b">
+<TD class="left">z12</TD><TD class="left">double</TD><TD class="right">79.42751616976344</TD><TD class="right">120.51015745533203</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">No</TD><TD class="left">numerictype(0, 16, 9)</TD></TR>
+<TR class="a">
+<TD class="left">z21</TD><TD class="left">double</TD><TD class="right">79.49793755181425</TD><TD class="right">120.51015745533203</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">No</TD><TD class="left">numerictype(0, 16, 9)</TD></TR>
+<TR class="b">
+<TD class="left">z22</TD><TD class="left">double</TD><TD class="right">79.43039710664452</TD><TD class="right">120.57248383023656</TD><TD class="right"></TD><TD class="right"></TD><TD class="left">No</TD><TD class="left">numerictype(0, 16, 9)</TD></TR>
+</TABLE>
+
+</body>
+</html>

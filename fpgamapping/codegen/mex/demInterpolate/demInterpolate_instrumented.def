@@ -1,0 +1,9 @@
+LIBRARY demInterpolate_instrumented.mexw64
+EXPORTS
+mexFunction
+mexfilerequiredapiversion
+emlrtMexFcnProperties
+demInterpolate
+demInterpolate_initialize
+demInterpolate_terminate
+demInterpolate_atexit

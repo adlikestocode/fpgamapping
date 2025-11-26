@@ -1,0 +1,66 @@
+# ========================================
+# MATLAB Version Control - Drone Pathfinding Project
+# ========================================
+
+# MATLAB autosave and cache
+*.asv
+*.m~
+slprj/
+*.autosave
+
+# Code generation outputs
+codegen/
+*.mexw64
+*.mexa64
+*.mexmaci64
+*.mex
+
+# HDL/FPGA generated files
+hdl_output_aws/
+hdlsrc/
+*.dcp
+*.bit
+*.ltx
+
+# Build directories
+build/
+vivado*/
+.Xil/
+
+# Reports and logs
+*.log
+*.rpt
+*.html
+*.xml
+vivado*.jou
+
+# Simulink cache
+*.slxc
+
+# Test outputs
+test_results/
+*.mat.bak
+
+# OS specific
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# IDE specific
+.vscode/
+.idea/
+*.code-workspace
+
+# Large data files (optional - keep your terrain data)
+# *.mat
+# *.geojson
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Documentation builds
+docs/_build/

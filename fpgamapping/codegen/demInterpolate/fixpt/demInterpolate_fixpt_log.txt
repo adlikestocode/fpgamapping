@@ -1,0 +1,31 @@
+
+Warnings: 
+
+File: C:\Users\adity_6z2h70p\Documents\MATLAB\fpgamapping\demInterpolate.m, line : 51, column : 12. The expression 'X_grid = demData.X;' was not executed during simulation. Consider using a more thorough testbench.
+File: C:\Users\adity_6z2h70p\Documents\MATLAB\fpgamapping\demInterpolate.m, line : 52, column : 12. The expression 'Y_grid = demData.Y;' was not executed during simulation. Consider using a more thorough testbench.
+File: C:\Users\adity_6z2h70p\Documents\MATLAB\fpgamapping\demInterpolate.m, line : 53, column : 12. The expression 'Z_grid = demData.Z;' was not executed during simulation. Consider using a more thorough testbench.
+File: C:\Users\adity_6z2h70p\Documents\MATLAB\fpgamapping\demInterpolate.m, line : 54, column : 16. The expression 'resolution = demData.resolution;' was not executed during simulation. Consider using a more thorough testbench.
+File: C:\Users\adity_6z2h70p\Documents\MATLAB\fpgamapping\demInterpolate.m, line : 57, column : 11. The expression 'x_min = X_grid(1, 1);' was not executed during simulation. Consider using a more thorough testbench.
+File: C:\Users\adity_6z2h70p\Documents\MATLAB\fpgamapping\demInterpolate.m, line : 58, column : 11. The expression 'y_min = Y_grid(1, 1);' was not executed during simulation. Consider using a more thorough testbench.
+File: C:\Users\adity_6z2h70p\Documents\MATLAB\fpgamapping\demInterpolate.m, line : 62, column : 13. The expression 'i_float = (x - x_min) / resolution;' was not executed during simulation. Consider using a more thorough testbench.
+File: C:\Users\adity_6z2h70p\Documents\MATLAB\fpgamapping\demInterpolate.m, line : 63, column : 13. The expression 'j_float = (y - y_min) / resolution;' was not executed during simulation. Consider using a more thorough testbench.
+File: C:\Users\adity_6z2h70p\Documents\MATLAB\fpgamapping\demInterpolate.m, line : 66, column : 7. The expression 'i = floor(i_float);' was not executed during simulation. Consider using a more thorough testbench.
+File: C:\Users\adity_6z2h70p\Documents\MATLAB\fpgamapping\demInterpolate.m, line : 67, column : 7. The expression 'j = floor(j_float);' was not executed during simulation. Consider using a more thorough testbench.
+File: C:\Users\adity_6z2h70p\Documents\MATLAB\fpgamapping\demInterpolate.m, line : 72, column : 11. The expression 'i = 0;' was not executed during simulation. Consider using a more thorough testbench.
+File: C:\Users\adity_6z2h70p\Documents\MATLAB\fpgamapping\demInterpolate.m, line : 75, column : 11. The expression 'j = 0;' was not executed during simulation. Consider using a more thorough testbench.
+File: C:\Users\adity_6z2h70p\Documents\MATLAB\fpgamapping\demInterpolate.m, line : 78, column : 11. The expression 'i = 99;' was not executed during simulation. Consider using a more thorough testbench.
+File: C:\Users\adity_6z2h70p\Documents\MATLAB\fpgamapping\demInterpolate.m, line : 81, column : 11. The expression 'j = 99;' was not executed during simulation. Consider using a more thorough testbench.
+File: C:\Users\adity_6z2h70p\Documents\MATLAB\fpgamapping\demInterpolate.m, line : 85, column : 8. The expression 'dx = i_float - i;' was not executed during simulation. Consider using a more thorough testbench.
+File: C:\Users\adity_6z2h70p\Documents\MATLAB\fpgamapping\demInterpolate.m, line : 86, column : 8. The expression 'dy = j_float - j;' was not executed during simulation. Consider using a more thorough testbench.
+File: C:\Users\adity_6z2h70p\Documents\MATLAB\fpgamapping\demInterpolate.m, line : 91, column : 12. The expression 'dx = 0;' was not executed during simulation. Consider using a more thorough testbench.
+File: C:\Users\adity_6z2h70p\Documents\MATLAB\fpgamapping\demInterpolate.m, line : 94, column : 12. The expression 'dx = 1;' was not executed during simulation. Consider using a more thorough testbench.
+File: C:\Users\adity_6z2h70p\Documents\MATLAB\fpgamapping\demInterpolate.m, line : 97, column : 12. The expression 'dy = 0;' was not executed during simulation. Consider using a more thorough testbench.
+File: C:\Users\adity_6z2h70p\Documents\MATLAB\fpgamapping\demInterpolate.m, line : 100, column : 12. The expression 'dy = 1;' was not executed during simulation. Consider using a more thorough testbench.
+File: C:\Users\adity_6z2h70p\Documents\MATLAB\fpgamapping\demInterpolate.m, line : 105, column : 9. The expression 'z11 = Z_grid(j+1, i+1);' was not executed during simulation. Consider using a more thorough testbench.
+File: C:\Users\adity_6z2h70p\Documents\MATLAB\fpgamapping\demInterpolate.m, line : 106, column : 9. The expression 'z21 = Z_grid(j+1, i+2);' was not executed during simulation. Consider using a more thorough testbench.
+File: C:\Users\adity_6z2h70p\Documents\MATLAB\fpgamapping\demInterpolate.m, line : 107, column : 9. The expression 'z12 = Z_grid(j+2, i+1);' was not executed during simulation. Consider using a more thorough testbench.
+File: C:\Users\adity_6z2h70p\Documents\MATLAB\fpgamapping\demInterpolate.m, line : 108, column : 9. The expression 'z22 = Z_grid(j+2, i+2);' was not executed during simulation. Consider using a more thorough testbench.
+File: C:\Users\adity_6z2h70p\Documents\MATLAB\fpgamapping\demInterpolate.m, line : 114, column : 7. The expression 'z = z11 * (1 - dx) * (1 - dy) + ...
+        z21 * dx * (1 - dy) + ...
+        z12 * (1 - dx) * dy + ...
+        z22 * dx * dy;' was not executed during simulation. Consider using a more thorough testbench.
